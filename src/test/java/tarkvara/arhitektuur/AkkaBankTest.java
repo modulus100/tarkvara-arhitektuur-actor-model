@@ -29,7 +29,7 @@ public class AkkaBankTest {
     }
 
     @Test
-    public void testGreeterActorSendingOfGreeting() {
+    public void testActorAsyncDeposit() {
         int startBalance = 0;
         int depositDelta = 10;
         String expectedBalanced = "1000";
