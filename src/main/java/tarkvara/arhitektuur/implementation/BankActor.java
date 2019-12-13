@@ -19,17 +19,17 @@ public class BankActor  extends AbstractActor {
     @Override
     public Receive createReceive() {
         return receiveBuilder()
-                .match(MoneyDepositMaker.class, changeAmount -> {
+                .match(DepositReceiver.class, changeAmount -> {
                     this.moneyOnAccount += changeAmount.moneyAmount;
                     System.out.println("Money arrived: " + changeAmount.moneyAmount +". Now:" +this.moneyOnAccount);
                 })
                 .build();
     }
-    static public class MoneyDepositMaker {
+    static public class DepositReceiver {
 
         public final double moneyAmount;
 
-        public MoneyDepositMaker(double moneyAmount) {
+        public DepositReceiver(double moneyAmount) {
             this.moneyAmount = moneyAmount;
         }
     }

@@ -16,10 +16,10 @@ public class MainExample {
         final ActorRef actor2 =  system.actorOf(MoneyDepositorActor.props(20 ,bankActor));
         final ActorRef actor3 =  system.actorOf(MoneyDepositorActor.props(30 ,bankActor));
 
-        actor1.tell(new MoneyDepositorActor.Depose(), ActorRef.noSender());
-        actor2.tell(new MoneyDepositorActor.Depose(), ActorRef.noSender());
-        actor3.tell(new MoneyDepositorActor.Depose(), ActorRef.noSender());
-        bankActor.tell("11111", ActorRef.noSender());
+        actor1.tell(new MoneyDepositorActor.Deposit(), ActorRef.noSender());
+        actor2.tell(new MoneyDepositorActor.Deposit(), ActorRef.noSender());
+        actor3.tell(new MoneyDepositorActor.Deposit(), ActorRef.noSender());
+       // bankActor.tell("11111", ActorRef.noSender());
 
     }
 }

@@ -34,7 +34,7 @@ public class MoneyDeposeRunner extends Thread {
         }
 
         for(ActorRef actorRef: deposers){
-            actorRef.tell(new MoneyDepositorActor.Depose(), ActorRef.noSender());
+            actorRef.tell(new MoneyDepositorActor.Deposit(), ActorRef.noSender());
         }
 
     }

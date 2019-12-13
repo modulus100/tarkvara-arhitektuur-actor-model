@@ -7,24 +7,24 @@ import akka.actor.Props;
 public class MoneyDepositorActor extends AbstractActor {
 
     public double amount;
-    public final ActorRef bankToDepose;
+    public final ActorRef bankToDeposit;
 
-    public MoneyDepositorActor(double amount, ActorRef bankToDepose) {
+    public MoneyDepositorActor(double amount, ActorRef bankToDeposit) {
         this.amount = amount;
-        this.bankToDepose = bankToDepose;
+        this.bankToDeposit = bankToDeposit;
     }
 
-    static public Props props(double amount, ActorRef bankToDepose) {
-        return Props.create(MoneyDepositorActor.class, () -> new MoneyDepositorActor(amount, bankToDepose));
+    static public Props props(double amount, ActorRef bankToDeposit) {
+        return Props.create(MoneyDepositorActor.class, () -> new MoneyDepositorActor(amount, bankToDeposit));
     }
 
-    static public class Depose{
+    static public class Deposit {
     }
 
     @Override
     public Receive createReceive() {
-        return receiveBuilder().match(Depose.class, x -> {
-            bankToDepose.tell(new BankActor.MoneyDepositMaker(this.amount), getSelf());
+        return receiveBuilder().match(Deposit.class, x -> {
+            bankToDeposit.tell(new BankActor.DepositReceiver(this.amount), getSelf());
         })
                 .build();
     }
