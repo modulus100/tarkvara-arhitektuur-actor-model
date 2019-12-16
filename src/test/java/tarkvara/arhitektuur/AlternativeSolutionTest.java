@@ -109,6 +109,4 @@ public class AlternativeSolutionTest {
     }
 
 
-    //TODO: add tests of negative answers
-
 }
