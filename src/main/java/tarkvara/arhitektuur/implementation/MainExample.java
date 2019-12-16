@@ -20,6 +20,5 @@ public class MainExample {
         actor2.tell(new MoneyDepositorActor.Deposit(), ActorRef.noSender());
         actor3.tell(new MoneyDepositorActor.Deposit(), ActorRef.noSender());
        // bankActor.tell("11111", ActorRef.noSender());
-
     }
 }
